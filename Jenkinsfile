@@ -1,22 +1,21 @@
 pipeline {
-    agent none
-    stage ('Checkout') {
-        agent any
-        steps {
-            checkout scm
-        }
+    agent any
 
-    }
-    stage ('Build') {
-        agent any
-	steps {
-	  sh 'docker build -t jitu/mkdocs .'	
-      }
-    }
-    stage ('deploy') {
-        agent any
-	steps {
-          sh 'mkdockerize.sh'
-	}
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
 }
