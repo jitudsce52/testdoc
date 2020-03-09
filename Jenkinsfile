@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './mkdockerize.sh"
+                sh './mkdockerize.sh'
             }
         }
         stage('Deploy') {
