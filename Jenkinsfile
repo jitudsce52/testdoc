@@ -2,14 +2,19 @@ pipeline {
     agent any
 
     stages {
+	stage('checkout') {
+            steps {
+	        checkout scm
+	    }
+	}
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh 'docker build -f jitu/mkdocs .'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'mkdockerize.sh"
             }
         }
         stage('Deploy') {
