@@ -1,7 +1,5 @@
 #!/bin/sh
-Printf "Enter your choice:\n"
-read INPUT_STRING
-#  INPUT_STRING=$1
+  INPUT_STRING=$1
   case $INPUT_STRING in
         produce)
                 sudo docker run --rm -it -v ${PWD}/mkdocs_home:/var/mkdocs_home jitu/mkdocs produce

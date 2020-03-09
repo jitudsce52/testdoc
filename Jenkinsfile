@@ -9,16 +9,17 @@ pipeline {
 	}
         stage('Build') {
             steps {
-                sh 'docker build -f jitu/mkdocs .'
+                sh 'docker build -t jitu/mkdocs .'
             }
         }
-        stage('Test') {
+        stage('produce') {
             steps {
-                sh './mkdockerize.sh'
+                sh './mkdockerize.sh produce'
             }
         }
-        stage('Deploy') {
+        stage('Serve') {
             steps {
+                sh './mkdockerize.sh serve'
                 echo 'Deploying....'
             }
         }
